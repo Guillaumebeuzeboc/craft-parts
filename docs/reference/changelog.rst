@@ -26,6 +26,7 @@ New features:
 
 - The ``uv`` plugin now compiles Python bytecode. Use ``UV_COMPILE_BYTECODE=0`` to
   disable this feature.
+- Add a new ``colcon`` plugin for buiding projects using the colcon build tool.
 
 .. _release-2.27.0:
 
