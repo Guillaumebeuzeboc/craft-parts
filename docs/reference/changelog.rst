@@ -1,3 +1,6 @@
+.. meta::
+    :description: See the features and bug fixes added in each release of Craft Parts.
+
 Changelog
 =========
 
@@ -17,16 +20,40 @@ Changelog
   For a complete list of commits, check out the `X.Y.Z`_ release on GitHub.
 
 
-.. _release-2.28.0:
+.. _release-2.29.0:
 
-2.28.0 (unreleased)
+2.29.0 (unreleased)
 -------------------
 
 New features:
 
-- The ``uv`` plugin now compiles Python bytecode. Use ``UV_COMPILE_BYTECODE=0`` to
-  disable this feature.
 - Add a colcon plugin for building parts that use the colcon build tool.
+- Add self-contained support for parts using the Gradle plugin.
+- The Gradle daemon is now disabled by default when using the Gradle plugin. You can
+  control this behaviour with the new ``gradle-use-daemon`` key.
+
+
+.. _release-2.28.0:
+
+2.28.0 (2026-01-08)
+-------------------
+
+New features:
+
+- The entire set of active plugins can now be replaced by using :py:func:`craft_parts.plugins.set_plugin_group`.
+  All plugin groups should contain at least the plugins from the :py:data:`craft_parts.plugins.PluginGroup.MINIMAL` group.
+- A new :ref:`craft_parts_ruby_plugin` allows convenient building of Ruby projects, including bundling Ruby interpreters.
+- The ``uv`` plugin now compiles Python bytecode. Use ``UV_COMPILE_BYTECODE=0`` to disable this feature.
+
+Bug fixes:
+
+- The Maven Use plugin now correctly infers a ``groupId`` when there is a parent pom to
+  infer from.
+- The ``make clean`` command now deletes ``docs/reference/gen``, which fixes
+  documentation builds that break because of outdated and leftover files in that
+  directory.
+
+For a complete list of commits, check out the `2.28.0`_ release on GitHub.
 
 .. _release-2.27.0:
 
@@ -44,6 +71,8 @@ Bug fixes:
   ``source-depth``.
 - Ignored outdated files are now still 'pulled', otherwise git will always consider
   the repository dirty.
+
+For a complete list of commits, check out the `2.27.0`_ release on GitHub.
 
 .. _release-2.26.0:
 
@@ -1546,6 +1575,8 @@ For a complete list of commits, check out the `2.0.0`_ release on GitHub.
 .. _craft-cli issue #172: https://github.com/canonical/craft-cli/issues/172
 .. _Poetry: https://python-poetry.org
 
+.. _2.28.0: https://github.com/canonical/craft-parts/releases/tag/2.28.0
+.. _2.27.0: https://github.com/canonical/craft-parts/releases/tag/2.27.0
 .. _2.26.0: https://github.com/canonical/craft-parts/releases/tag/2.26.0
 .. _2.25.0: https://github.com/canonical/craft-parts/releases/tag/2.25.0
 .. _2.24.0: https://github.com/canonical/craft-parts/releases/tag/2.24.0
